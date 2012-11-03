@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C016369164531BA00CD5C40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C016368164531BA00CD5C40 /* UIKit.framework */; };
+		5C01636B164531BA00CD5C40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C01636A164531BA00CD5C40 /* Foundation.framework */; };
+		5C01636D164531BA00CD5C40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C01636C164531BA00CD5C40 /* CoreGraphics.framework */; };
+		5C016373164531BA00CD5C40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C016371164531BA00CD5C40 /* InfoPlist.strings */; };
+		5C016375164531BA00CD5C40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C016374164531BA00CD5C40 /* main.m */; };
+		5C016379164531BA00CD5C40 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C016378164531BA00CD5C40 /* KSAppDelegate.m */; };
+		5C01637B164531BA00CD5C40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C01637A164531BA00CD5C40 /* Default.png */; };
+		5C01637D164531BA00CD5C40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C01637C164531BA00CD5C40 /* Default@2x.png */; };
+		5C01637F164531BA00CD5C40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C01637E164531BA00CD5C40 /* Default-568h@2x.png */; };
+		5C016382164531BA00CD5C40 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C016380164531BA00CD5C40 /* MainStoryboard.storyboard */; };
+		5C016385164531BA00CD5C40 /* KSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C016384164531BA00CD5C40 /* KSMasterViewController.m */; };
+		5C016388164531BA00CD5C40 /* KSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C016387164531BA00CD5C40 /* KSDetailViewController.m */; };
+		5C016390164531BA00CD5C40 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C01638F164531BA00CD5C40 /* SenTestingKit.framework */; };
+		5C016391164531BA00CD5C40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C016368164531BA00CD5C40 /* UIKit.framework */; };
+		5C016392164531BA00CD5C40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C01636A164531BA00CD5C40 /* Foundation.framework */; };
+		5C01639A164531BA00CD5C40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C016398164531BA00CD5C40 /* InfoPlist.strings */; };
+		5C01639D164531BB00CD5C40 /* browse_overflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C01639C164531BB00CD5C40 /* browse_overflowTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C016393164531BA00CD5C40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C01635B164531BA00CD5C40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C016363164531BA00CD5C40;
+			remoteInfo = "browse-overflow";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C016364164531BA00CD5C40 /* browse-overflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "browse-overflow.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C016368164531BA00CD5C40 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5C01636A164531BA00CD5C40 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5C01636C164531BA00CD5C40 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5C016370164531BA00CD5C40 /* browse-overflow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "browse-overflow-Info.plist"; sourceTree = "<group>"; };
+		5C016372164531BA00CD5C40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C016374164531BA00CD5C40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5C016376164531BA00CD5C40 /* browse-overflow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "browse-overflow-Prefix.pch"; sourceTree = "<group>"; };
+		5C016377164531BA00CD5C40 /* KSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
+		5C016378164531BA00CD5C40 /* KSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
+		5C01637A164531BA00CD5C40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5C01637C164531BA00CD5C40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5C01637E164531BA00CD5C40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C016381164531BA00CD5C40 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5C016383164531BA00CD5C40 /* KSMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMasterViewController.h; sourceTree = "<group>"; };
+		5C016384164531BA00CD5C40 /* KSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSMasterViewController.m; sourceTree = "<group>"; };
+		5C016386164531BA00CD5C40 /* KSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSDetailViewController.h; sourceTree = "<group>"; };
+		5C016387164531BA00CD5C40 /* KSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSDetailViewController.m; sourceTree = "<group>"; };
+		5C01638E164531BA00CD5C40 /* browse-overflowTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "browse-overflowTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C01638F164531BA00CD5C40 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5C016397164531BA00CD5C40 /* browse-overflowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "browse-overflowTests-Info.plist"; sourceTree = "<group>"; };
+		5C016399164531BA00CD5C40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C01639B164531BB00CD5C40 /* browse_overflowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = browse_overflowTests.h; sourceTree = "<group>"; };
+		5C01639C164531BB00CD5C40 /* browse_overflowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = browse_overflowTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C016361164531BA00CD5C40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C016369164531BA00CD5C40 /* UIKit.framework in Frameworks */,
+				5C01636B164531BA00CD5C40 /* Foundation.framework in Frameworks */,
+				5C01636D164531BA00CD5C40 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C01638A164531BA00CD5C40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C016390164531BA00CD5C40 /* SenTestingKit.framework in Frameworks */,
+				5C016391164531BA00CD5C40 /* UIKit.framework in Frameworks */,
+				5C016392164531BA00CD5C40 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C016359164531BA00CD5C40 = {
+			isa = PBXGroup;
+			children = (
+				5C01636E164531BA00CD5C40 /* browse-overflow */,
+				5C016395164531BA00CD5C40 /* browse-overflowTests */,
+				5C016367164531BA00CD5C40 /* Frameworks */,
+				5C016365164531BA00CD5C40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5C016365164531BA00CD5C40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C016364164531BA00CD5C40 /* browse-overflow.app */,
+				5C01638E164531BA00CD5C40 /* browse-overflowTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C016367164531BA00CD5C40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C016368164531BA00CD5C40 /* UIKit.framework */,
+				5C01636A164531BA00CD5C40 /* Foundation.framework */,
+				5C01636C164531BA00CD5C40 /* CoreGraphics.framework */,
+				5C01638F164531BA00CD5C40 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C01636E164531BA00CD5C40 /* browse-overflow */ = {
+			isa = PBXGroup;
+			children = (
+				5C016377164531BA00CD5C40 /* KSAppDelegate.h */,
+				5C016378164531BA00CD5C40 /* KSAppDelegate.m */,
+				5C016380164531BA00CD5C40 /* MainStoryboard.storyboard */,
+				5C016383164531BA00CD5C40 /* KSMasterViewController.h */,
+				5C016384164531BA00CD5C40 /* KSMasterViewController.m */,
+				5C016386164531BA00CD5C40 /* KSDetailViewController.h */,
+				5C016387164531BA00CD5C40 /* KSDetailViewController.m */,
+				5C01636F164531BA00CD5C40 /* Supporting Files */,
+			);
+			path = "browse-overflow";
+			sourceTree = "<group>";
+		};
+		5C01636F164531BA00CD5C40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C016370164531BA00CD5C40 /* browse-overflow-Info.plist */,
+				5C016371164531BA00CD5C40 /* InfoPlist.strings */,
+				5C016374164531BA00CD5C40 /* main.m */,
+				5C016376164531BA00CD5C40 /* browse-overflow-Prefix.pch */,
+				5C01637A164531BA00CD5C40 /* Default.png */,
+				5C01637C164531BA00CD5C40 /* Default@2x.png */,
+				5C01637E164531BA00CD5C40 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C016395164531BA00CD5C40 /* browse-overflowTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C01639B164531BB00CD5C40 /* browse_overflowTests.h */,
+				5C01639C164531BB00CD5C40 /* browse_overflowTests.m */,
+				5C016396164531BA00CD5C40 /* Supporting Files */,
+			);
+			path = "browse-overflowTests";
+			sourceTree = "<group>";
+		};
+		5C016396164531BA00CD5C40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C016397164531BA00CD5C40 /* browse-overflowTests-Info.plist */,
+				5C016398164531BA00CD5C40 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C016363164531BA00CD5C40 /* browse-overflow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C0163A0164531BB00CD5C40 /* Build configuration list for PBXNativeTarget "browse-overflow" */;
+			buildPhases = (
+				5C016360164531BA00CD5C40 /* Sources */,
+				5C016361164531BA00CD5C40 /* Frameworks */,
+				5C016362164531BA00CD5C40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "browse-overflow";
+			productName = "browse-overflow";
+			productReference = 5C016364164531BA00CD5C40 /* browse-overflow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C01638D164531BA00CD5C40 /* browse-overflowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C0163A3164531BB00CD5C40 /* Build configuration list for PBXNativeTarget "browse-overflowTests" */;
+			buildPhases = (
+				5C016389164531BA00CD5C40 /* Sources */,
+				5C01638A164531BA00CD5C40 /* Frameworks */,
+				5C01638B164531BA00CD5C40 /* Resources */,
+				5C01638C164531BA00CD5C40 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C016394164531BA00CD5C40 /* PBXTargetDependency */,
+			);
+			name = "browse-overflowTests";
+			productName = "browse-overflowTests";
+			productReference = 5C01638E164531BA00CD5C40 /* browse-overflowTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C01635B164531BA00CD5C40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KS;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Mauricio Hanika";
+			};
+			buildConfigurationList = 5C01635E164531BA00CD5C40 /* Build configuration list for PBXProject "browse-overflow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5C016359164531BA00CD5C40;
+			productRefGroup = 5C016365164531BA00CD5C40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C016363164531BA00CD5C40 /* browse-overflow */,
+				5C01638D164531BA00CD5C40 /* browse-overflowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C016362164531BA00CD5C40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C016373164531BA00CD5C40 /* InfoPlist.strings in Resources */,
+				5C01637B164531BA00CD5C40 /* Default.png in Resources */,
+				5C01637D164531BA00CD5C40 /* Default@2x.png in Resources */,
+				5C01637F164531BA00CD5C40 /* Default-568h@2x.png in Resources */,
+				5C016382164531BA00CD5C40 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C01638B164531BA00CD5C40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C01639A164531BA00CD5C40 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C01638C164531BA00CD5C40 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C016360164531BA00CD5C40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C016375164531BA00CD5C40 /* main.m in Sources */,
+				5C016379164531BA00CD5C40 /* KSAppDelegate.m in Sources */,
+				5C016385164531BA00CD5C40 /* KSMasterViewController.m in Sources */,
+				5C016388164531BA00CD5C40 /* KSDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C016389164531BA00CD5C40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C01639D164531BB00CD5C40 /* browse_overflowTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C016394164531BA00CD5C40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C016363164531BA00CD5C40 /* browse-overflow */;
+			targetProxy = 5C016393164531BA00CD5C40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C016371164531BA00CD5C40 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C016372164531BA00CD5C40 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5C016380164531BA00CD5C40 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C016381164531BA00CD5C40 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		5C016398164531BA00CD5C40 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C016399164531BA00CD5C40 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C01639E164531BB00CD5C40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5C01639F164531BB00CD5C40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C0163A1164531BB00CD5C40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				INFOPLIST_FILE = "browse-overflow/browse-overflow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5C0163A2164531BB00CD5C40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				INFOPLIST_FILE = "browse-overflow/browse-overflow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5C0163A4164531BB00CD5C40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/browse-overflow.app/browse-overflow";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				INFOPLIST_FILE = "browse-overflowTests/browse-overflowTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5C0163A5164531BB00CD5C40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/browse-overflow.app/browse-overflow";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				INFOPLIST_FILE = "browse-overflowTests/browse-overflowTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C01635E164531BA00CD5C40 /* Build configuration list for PBXProject "browse-overflow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C01639E164531BB00CD5C40 /* Debug */,
+				5C01639F164531BB00CD5C40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C0163A0164531BB00CD5C40 /* Build configuration list for PBXNativeTarget "browse-overflow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C0163A1164531BB00CD5C40 /* Debug */,
+				5C0163A2164531BB00CD5C40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5C0163A3164531BB00CD5C40 /* Build configuration list for PBXNativeTarget "browse-overflowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C0163A4164531BB00CD5C40 /* Debug */,
+				5C0163A5164531BB00CD5C40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C01635B164531BA00CD5C40 /* Project object */;
+}
