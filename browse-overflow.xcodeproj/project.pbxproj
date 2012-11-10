@@ -23,7 +23,24 @@
 		5C016391164531BA00CD5C40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C016368164531BA00CD5C40 /* UIKit.framework */; };
 		5C016392164531BA00CD5C40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C01636A164531BA00CD5C40 /* Foundation.framework */; };
 		5C01639A164531BA00CD5C40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C016398164531BA00CD5C40 /* InfoPlist.strings */; };
-		5C01639D164531BB00CD5C40 /* browse_overflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C01639C164531BB00CD5C40 /* browse_overflowTests.m */; };
+		5C0163AB1645348600CD5C40 /* KSTopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163AA1645348600CD5C40 /* KSTopicTests.m */; };
+		5C0163AF164534F100CD5C40 /* KSTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163AE164534F100CD5C40 /* KSTopic.m */; };
+		5C0163B1164534F600CD5C40 /* KSTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163AE164534F100CD5C40 /* KSTopic.m */; };
+		5C0163B416453BFE00CD5C40 /* KSQuestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163B316453BFE00CD5C40 /* KSQuestionTests.m */; };
+		5C0163B716453C5A00CD5C40 /* KSQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163B616453C5A00CD5C40 /* KSQuestion.m */; };
+		5C0163B816453C5A00CD5C40 /* KSQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163B616453C5A00CD5C40 /* KSQuestion.m */; };
+		5C0163BB1645447100CD5C40 /* KSPersonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163BA1645447100CD5C40 /* KSPersonTests.m */; };
+		5C0163BE1645475100CD5C40 /* KSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163BD1645475100CD5C40 /* KSPerson.m */; };
+		5C0163BF1645475100CD5C40 /* KSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163BD1645475100CD5C40 /* KSPerson.m */; };
+		5C0163C21645508200CD5C40 /* KSAnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C11645508200CD5C40 /* KSAnswerTests.m */; };
+		5C0163C5164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
+		5C0163C6164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
+		5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
+		5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
+		5C83285516486A7700439674 /* KSQuestionCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285416486A7700439674 /* KSQuestionCreationTests.m */; };
+		5C83285916486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
+		5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
+		5CE9FA951649A3EF00ED0C13 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +76,35 @@
 		5C01638F164531BA00CD5C40 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5C016397164531BA00CD5C40 /* browse-overflowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "browse-overflowTests-Info.plist"; sourceTree = "<group>"; };
 		5C016399164531BA00CD5C40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5C01639B164531BB00CD5C40 /* browse_overflowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = browse_overflowTests.h; sourceTree = "<group>"; };
-		5C01639C164531BB00CD5C40 /* browse_overflowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = browse_overflowTests.m; sourceTree = "<group>"; };
+		5C0163A91645348600CD5C40 /* KSTopicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTopicTests.h; sourceTree = "<group>"; };
+		5C0163AA1645348600CD5C40 /* KSTopicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTopicTests.m; sourceTree = "<group>"; };
+		5C0163AD164534F100CD5C40 /* KSTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTopic.h; sourceTree = "<group>"; };
+		5C0163AE164534F100CD5C40 /* KSTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTopic.m; sourceTree = "<group>"; };
+		5C0163B216453BFE00CD5C40 /* KSQuestionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionTests.h; sourceTree = "<group>"; };
+		5C0163B316453BFE00CD5C40 /* KSQuestionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionTests.m; sourceTree = "<group>"; };
+		5C0163B516453C5A00CD5C40 /* KSQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestion.h; sourceTree = "<group>"; };
+		5C0163B616453C5A00CD5C40 /* KSQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestion.m; sourceTree = "<group>"; };
+		5C0163B91645447100CD5C40 /* KSPersonTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPersonTests.h; sourceTree = "<group>"; };
+		5C0163BA1645447100CD5C40 /* KSPersonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPersonTests.m; sourceTree = "<group>"; };
+		5C0163BC1645475100CD5C40 /* KSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPerson.h; sourceTree = "<group>"; };
+		5C0163BD1645475100CD5C40 /* KSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPerson.m; sourceTree = "<group>"; };
+		5C0163C01645508200CD5C40 /* KSAnswerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswerTests.h; sourceTree = "<group>"; };
+		5C0163C11645508200CD5C40 /* KSAnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswerTests.m; sourceTree = "<group>"; };
+		5C0163C3164552F000CD5C40 /* KSAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswer.h; sourceTree = "<group>"; };
+		5C0163C4164552F000CD5C40 /* KSAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswer.m; sourceTree = "<group>"; };
+		5C75A9F91649A53C00FC7903 /* KSStackOverflowCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowCommunicator.h; sourceTree = "<group>"; };
+		5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowCommunicator.m; sourceTree = "<group>"; };
+		5C83285316486A7700439674 /* KSQuestionCreationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionCreationTests.h; sourceTree = "<group>"; };
+		5C83285416486A7700439674 /* KSQuestionCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionCreationTests.m; sourceTree = "<group>"; };
+		5C83285716486B6800439674 /* KSStackOverflowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowManager.h; sourceTree = "<group>"; };
+		5C83285816486B6800439674 /* KSStackOverflowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowManager.m; sourceTree = "<group>"; };
+		5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		5CE9FA8F1649A3EF00ED0C13 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		5CE9FA901649A3EF00ED0C13 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		5CE9FA911649A3EF00ED0C13 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		5CE9FA921649A3EF00ED0C13 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		5CE9FA931649A3EF00ED0C13 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		5CE9FA941649A3EF00ED0C13 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +125,7 @@
 				5C016390164531BA00CD5C40 /* SenTestingKit.framework in Frameworks */,
 				5C016391164531BA00CD5C40 /* UIKit.framework in Frameworks */,
 				5C016392164531BA00CD5C40 /* Foundation.framework in Frameworks */,
+				5CE9FA951649A3EF00ED0C13 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +135,7 @@
 		5C016359164531BA00CD5C40 = {
 			isa = PBXGroup;
 			children = (
+				5CE9FA8D1649A3EF00ED0C13 /* OCMock */,
 				5C01636E164531BA00CD5C40 /* browse-overflow */,
 				5C016395164531BA00CD5C40 /* browse-overflowTests */,
 				5C016367164531BA00CD5C40 /* Frameworks */,
@@ -120,13 +166,8 @@
 		5C01636E164531BA00CD5C40 /* browse-overflow */ = {
 			isa = PBXGroup;
 			children = (
-				5C016377164531BA00CD5C40 /* KSAppDelegate.h */,
-				5C016378164531BA00CD5C40 /* KSAppDelegate.m */,
-				5C016380164531BA00CD5C40 /* MainStoryboard.storyboard */,
-				5C016383164531BA00CD5C40 /* KSMasterViewController.h */,
-				5C016384164531BA00CD5C40 /* KSMasterViewController.m */,
-				5C016386164531BA00CD5C40 /* KSDetailViewController.h */,
-				5C016387164531BA00CD5C40 /* KSDetailViewController.m */,
+				5C0163A7164531D900CD5C40 /* Classes */,
+				5C0163A6164531D100CD5C40 /* Resources */,
 				5C01636F164531BA00CD5C40 /* Supporting Files */,
 			);
 			path = "browse-overflow";
@@ -149,8 +190,16 @@
 		5C016395164531BA00CD5C40 /* browse-overflowTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C01639B164531BB00CD5C40 /* browse_overflowTests.h */,
-				5C01639C164531BB00CD5C40 /* browse_overflowTests.m */,
+				5C0163C01645508200CD5C40 /* KSAnswerTests.h */,
+				5C0163C11645508200CD5C40 /* KSAnswerTests.m */,
+				5C0163B91645447100CD5C40 /* KSPersonTests.h */,
+				5C0163BA1645447100CD5C40 /* KSPersonTests.m */,
+				5C83285316486A7700439674 /* KSQuestionCreationTests.h */,
+				5C83285416486A7700439674 /* KSQuestionCreationTests.m */,
+				5C0163B216453BFE00CD5C40 /* KSQuestionTests.h */,
+				5C0163B316453BFE00CD5C40 /* KSQuestionTests.m */,
+				5C0163A91645348600CD5C40 /* KSTopicTests.h */,
+				5C0163AA1645348600CD5C40 /* KSTopicTests.m */,
 				5C016396164531BA00CD5C40 /* Supporting Files */,
 			);
 			path = "browse-overflowTests";
@@ -163,6 +212,69 @@
 				5C016398164531BA00CD5C40 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C0163A6164531D100CD5C40 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C016380164531BA00CD5C40 /* MainStoryboard.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5C0163A7164531D900CD5C40 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5C0163AC164534E000CD5C40 /* Model */,
+				5C016377164531BA00CD5C40 /* KSAppDelegate.h */,
+				5C016378164531BA00CD5C40 /* KSAppDelegate.m */,
+				5C0163A8164531E700CD5C40 /* View Controllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		5C0163A8164531E700CD5C40 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C016383164531BA00CD5C40 /* KSMasterViewController.h */,
+				5C016384164531BA00CD5C40 /* KSMasterViewController.m */,
+				5C016386164531BA00CD5C40 /* KSDetailViewController.h */,
+				5C016387164531BA00CD5C40 /* KSDetailViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5C0163AC164534E000CD5C40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C0163C3164552F000CD5C40 /* KSAnswer.h */,
+				5C0163C4164552F000CD5C40 /* KSAnswer.m */,
+				5C0163BC1645475100CD5C40 /* KSPerson.h */,
+				5C0163BD1645475100CD5C40 /* KSPerson.m */,
+				5C0163B516453C5A00CD5C40 /* KSQuestion.h */,
+				5C0163B616453C5A00CD5C40 /* KSQuestion.m */,
+				5C75A9F91649A53C00FC7903 /* KSStackOverflowCommunicator.h */,
+				5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */,
+				5C83285716486B6800439674 /* KSStackOverflowManager.h */,
+				5C83285816486B6800439674 /* KSStackOverflowManager.m */,
+				5C0163AD164534F100CD5C40 /* KSTopic.h */,
+				5C0163AE164534F100CD5C40 /* KSTopic.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5CE9FA8D1649A3EF00ED0C13 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */,
+				5CE9FA8F1649A3EF00ED0C13 /* NSNotificationCenter+OCMAdditions.h */,
+				5CE9FA901649A3EF00ED0C13 /* OCMArg.h */,
+				5CE9FA911649A3EF00ED0C13 /* OCMConstraint.h */,
+				5CE9FA921649A3EF00ED0C13 /* OCMock.h */,
+				5CE9FA931649A3EF00ED0C13 /* OCMockObject.h */,
+				5CE9FA941649A3EF00ED0C13 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +392,12 @@
 				5C016379164531BA00CD5C40 /* KSAppDelegate.m in Sources */,
 				5C016385164531BA00CD5C40 /* KSMasterViewController.m in Sources */,
 				5C016388164531BA00CD5C40 /* KSDetailViewController.m in Sources */,
+				5C0163AF164534F100CD5C40 /* KSTopic.m in Sources */,
+				5C0163B716453C5A00CD5C40 /* KSQuestion.m in Sources */,
+				5C0163BE1645475100CD5C40 /* KSPerson.m in Sources */,
+				5C0163C5164552F000CD5C40 /* KSAnswer.m in Sources */,
+				5C83285916486B6800439674 /* KSStackOverflowManager.m in Sources */,
+				5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +405,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C01639D164531BB00CD5C40 /* browse_overflowTests.m in Sources */,
+				5C0163AB1645348600CD5C40 /* KSTopicTests.m in Sources */,
+				5C0163B1164534F600CD5C40 /* KSTopic.m in Sources */,
+				5C0163B416453BFE00CD5C40 /* KSQuestionTests.m in Sources */,
+				5C0163B816453C5A00CD5C40 /* KSQuestion.m in Sources */,
+				5C0163BB1645447100CD5C40 /* KSPersonTests.m in Sources */,
+				5C0163BF1645475100CD5C40 /* KSPerson.m in Sources */,
+				5C0163C21645508200CD5C40 /* KSAnswerTests.m in Sources */,
+				5C0163C6164552F000CD5C40 /* KSAnswer.m in Sources */,
+				5C83285516486A7700439674 /* KSQuestionCreationTests.m in Sources */,
+				5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */,
+				5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,9 +539,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				INFOPLIST_FILE = "browse-overflowTests/browse-overflowTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OCMock\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/OCMock/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -428,9 +567,20 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "browse-overflow/browse-overflow-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				INFOPLIST_FILE = "browse-overflowTests/browse-overflowTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OCMock\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/OCMock/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -454,6 +604,7 @@
 				5C0163A2164531BB00CD5C40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C0163A3164531BB00CD5C40 /* Build configuration list for PBXNativeTarget "browse-overflowTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +613,7 @@
 				5C0163A5164531BB00CD5C40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
