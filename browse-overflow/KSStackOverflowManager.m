@@ -37,7 +37,7 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   NSDictionary *errorInfo = @{ NSUnderlyingErrorKey: error };
   NSError *reportableError = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
   
-  [_delegate fetchingQuestionsOnTopic:nil failedWithError:reportableError];
+  [_delegate fetchingQuestionsFailedWithError:reportableError];
 }
 
 @end

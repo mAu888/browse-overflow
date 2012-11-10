@@ -20,7 +20,7 @@ enum {
 
 @protocol KSStackOverflowManagerDelegate <NSObject>
 
-- (void) fetchingQuestionsOnTopic:(KSTopic *)topic failedWithError:(NSError *)error;
+- (void) fetchingQuestionsFailedWithError:(NSError *)error;
 
 @property (strong) NSError *fetchError;
 

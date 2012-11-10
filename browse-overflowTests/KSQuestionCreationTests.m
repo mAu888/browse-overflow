@@ -9,7 +9,6 @@
 #import "KSQuestionCreationTests.h"
 #import "KSStackOverflowManager.h"
 #import "KSStackOverflowCommunicator.h"
-#import "KSMockStackOverflowManagerDelegate.h"
 #import "KSTopic.h"
 
 #import "OCMock.h"
@@ -40,7 +39,7 @@
 
 - (void) testConformingObjectCanBeDelegate
 {
-  id <KSStackOverflowManagerDelegate> delegate = [[KSMockStackOverflowManagerDelegate alloc] init];
+  id <KSStackOverflowManagerDelegate> delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
   STAssertNoThrow(_mgr.delegate = delegate, @"Conforming object can be delegate");
 }
 
@@ -68,7 +67,7 @@
 {
   id delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
   
-  [[delegate expect] fetchingQuestionsOnTopic:[OCMArg isNil] failedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
+  [[delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
     return [arg isKindOfClass:[NSError class]] && [[(NSError *)arg domain] isEqualToString:KSStackOverflowManagerError];
   }]];
   
@@ -87,7 +86,7 @@
   _mgr.delegate = delegate;
   NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
   
-  [[delegate expect] fetchingQuestionsOnTopic:[OCMArg isNil] failedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
+  [[delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
     return [[arg userInfo] objectForKey:NSUnderlyingErrorKey] == underlyingError;
   }]];
   
