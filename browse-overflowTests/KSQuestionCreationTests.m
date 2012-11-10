@@ -9,6 +9,7 @@
 #import "KSQuestionCreationTests.h"
 #import "KSStackOverflowManager.h"
 #import "KSStackOverflowCommunicator.h"
+#import "KSQuestionBuilder.h"
 #import "KSTopic.h"
 
 #import "OCMock.h"
@@ -93,6 +94,22 @@
   [_mgr searchingForQuestionsFailedWithError:underlyingError];
 
   [delegate verify];
+}
+
+- (void) testQuestionJSONIsPassedToQuestionBuilder
+{
+  id builder = [OCMockObject mockForClass:[KSQuestionBuilder class]];
+  
+  [[builder expect] questionsFromJSON:[OCMArg checkWithBlock:^BOOL(id obj) {
+    return [obj isKindOfClass:[NSString class]] && [obj isEqualToString:@"{ \"fake\": \"json\" }"];
+  }] error:nil];
+  
+  _mgr.questionBuilder = builder;
+  [_mgr receivedQuestionJSON:@"{ \"fake\": \"json\" }"];
+  
+  _mgr.questionBuilder = nil;
+  
+  [builder verify];
 }
 
 @end

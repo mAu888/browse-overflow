@@ -15,6 +15,7 @@ enum {
 };
 
 @class KSTopic;
+@class KSQuestionBuilder;
 @class KSStackOverflowCommunicator;
 
 
@@ -31,8 +32,10 @@ enum {
 
 - (void) fetchQuestionsOnTopic:(KSTopic *)topic;
 - (void) searchingForQuestionsFailedWithError:(NSError *)error;
+- (void) receivedQuestionJSON:(NSString *)objectNotation;
 
 @property (nonatomic, strong) KSStackOverflowCommunicator *communicator;
+@property (nonatomic, strong) KSQuestionBuilder *questionBuilder;
 @property (nonatomic, weak) id<KSStackOverflowManagerDelegate> delegate;
 
 @end

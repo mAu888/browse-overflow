@@ -35,6 +35,8 @@
 		5C0163C21645508200CD5C40 /* KSAnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C11645508200CD5C40 /* KSAnswerTests.m */; };
 		5C0163C5164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
 		5C0163C6164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
+		5C1504B7164F130D00B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
+		5C1504B8164F134300B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
 		5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
 		5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
 		5C83285516486A7700439674 /* KSQuestionCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285416486A7700439674 /* KSQuestionCreationTests.m */; };
@@ -92,6 +94,8 @@
 		5C0163C11645508200CD5C40 /* KSAnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswerTests.m; sourceTree = "<group>"; };
 		5C0163C3164552F000CD5C40 /* KSAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswer.h; sourceTree = "<group>"; };
 		5C0163C4164552F000CD5C40 /* KSAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswer.m; sourceTree = "<group>"; };
+		5C1504B5164F130D00B36F49 /* KSQuestionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionBuilder.h; sourceTree = "<group>"; };
+		5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionBuilder.m; sourceTree = "<group>"; };
 		5C75A9F91649A53C00FC7903 /* KSStackOverflowCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowCommunicator.h; sourceTree = "<group>"; };
 		5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowCommunicator.m; sourceTree = "<group>"; };
 		5C83285316486A7700439674 /* KSQuestionCreationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionCreationTests.h; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				5C0163BD1645475100CD5C40 /* KSPerson.m */,
 				5C0163B516453C5A00CD5C40 /* KSQuestion.h */,
 				5C0163B616453C5A00CD5C40 /* KSQuestion.m */,
+				5C1504B5164F130D00B36F49 /* KSQuestionBuilder.h */,
+				5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */,
 				5C75A9F91649A53C00FC7903 /* KSStackOverflowCommunicator.h */,
 				5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */,
 				5C83285716486B6800439674 /* KSStackOverflowManager.h */,
@@ -398,6 +404,7 @@
 				5C0163C5164552F000CD5C40 /* KSAnswer.m in Sources */,
 				5C83285916486B6800439674 /* KSStackOverflowManager.m in Sources */,
 				5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
+				5C1504B7164F130D00B36F49 /* KSQuestionBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +423,7 @@
 				5C83285516486A7700439674 /* KSQuestionCreationTests.m in Sources */,
 				5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */,
 				5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
+				5C1504B8164F134300B36F49 /* KSQuestionBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

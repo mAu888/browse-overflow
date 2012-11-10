@@ -8,6 +8,7 @@
 
 #import "KSStackOverflowManager.h"
 #import "KSStackOverflowCommunicator.h"
+#import "KSQuestionBuilder.h"
 #import "KSTopic.h"
 
 NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
@@ -15,6 +16,7 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 @implementation KSStackOverflowManager
 
 @synthesize communicator = _communicator;
+@synthesize questionBuilder = _questionBuilder;
 @synthesize delegate = _delegate;
 
 - (void) setDelegate:(id<KSStackOverflowManagerDelegate>)delegate
@@ -38,6 +40,11 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   NSError *reportableError = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
   
   [_delegate fetchingQuestionsFailedWithError:reportableError];
+}
+
+- (void) receivedQuestionJSON:(NSString *)objectNotation
+{
+  [self.questionBuilder questionsFromJSON:objectNotation error:nil];
 }
 
 @end
