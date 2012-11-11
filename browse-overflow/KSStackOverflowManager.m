@@ -13,6 +13,16 @@
 
 NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 
+@interface KSStackOverflowManager ()
+
+- (void) notifyDelegateAboutQuestionSearchError:(NSError *)underlyingError;
+
+@end
+
+
+///////////////////
+// Implementation
+
 @implementation KSStackOverflowManager
 
 @synthesize communicator = _communicator;
@@ -36,10 +46,7 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 
 - (void) searchingForQuestionsFailedWithError:(NSError *)error
 {
-  NSDictionary *errorInfo = @{ NSUnderlyingErrorKey: error };
-  NSError *reportableError = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
-  
-  [_delegate fetchingQuestionsFailedWithError:reportableError];
+  [self notifyDelegateAboutQuestionSearchError:error];
 }
 
 - (void) receivedQuestionJSON:(NSString *)objectNotation
@@ -49,16 +56,23 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   
   if (questions == nil)
   {
-    NSDictionary *errorInfo = nil;
-    if (error != nil)
-    {
-      errorInfo = @{ NSUnderlyingErrorKey: error };
-    }
-    
-    NSError *reportableError = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
-    
-    [_delegate fetchingQuestionsFailedWithError:reportableError];
+    [self notifyDelegateAboutQuestionSearchError:error];
   }
+}
+
+#pragma mark - Private methods
+
+- (void) notifyDelegateAboutQuestionSearchError:(NSError *)underlyingError
+{
+  NSDictionary *errorInfo = nil;
+  if (underlyingError != nil)
+  {
+    errorInfo = @{ NSUnderlyingErrorKey: underlyingError };
+  }
+  
+  NSError *reportableError = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
+  
+  [_delegate fetchingQuestionsFailedWithError:reportableError];
 }
 
 @end
