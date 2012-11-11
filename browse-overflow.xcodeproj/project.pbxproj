@@ -37,6 +37,7 @@
 		5C0163C6164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
 		5C1504B7164F130D00B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
 		5C1504B8164F134300B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
+		5C1504BC164FDD6400B36F49 /* KSQuestionBuilderMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */; };
 		5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
 		5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */; };
 		5C83285516486A7700439674 /* KSQuestionCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285416486A7700439674 /* KSQuestionCreationTests.m */; };
@@ -96,6 +97,8 @@
 		5C0163C4164552F000CD5C40 /* KSAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswer.m; sourceTree = "<group>"; };
 		5C1504B5164F130D00B36F49 /* KSQuestionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionBuilder.h; sourceTree = "<group>"; };
 		5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionBuilder.m; sourceTree = "<group>"; };
+		5C1504BA164FDD6400B36F49 /* KSQuestionBuilderMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionBuilderMock.h; sourceTree = "<group>"; };
+		5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionBuilderMock.m; sourceTree = "<group>"; };
 		5C75A9F91649A53C00FC7903 /* KSStackOverflowCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowCommunicator.h; sourceTree = "<group>"; };
 		5C75A9FA1649A53C00FC7903 /* KSStackOverflowCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowCommunicator.m; sourceTree = "<group>"; };
 		5C83285316486A7700439674 /* KSQuestionCreationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionCreationTests.h; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		5C016395164531BA00CD5C40 /* browse-overflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				5C1504B9164FDD4C00B36F49 /* Complex Mocks */,
 				5C0163C01645508200CD5C40 /* KSAnswerTests.h */,
 				5C0163C11645508200CD5C40 /* KSAnswerTests.m */,
 				5C0163B91645447100CD5C40 /* KSPersonTests.h */,
@@ -267,6 +271,15 @@
 				5C0163AE164534F100CD5C40 /* KSTopic.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5C1504B9164FDD4C00B36F49 /* Complex Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5C1504BA164FDD6400B36F49 /* KSQuestionBuilderMock.h */,
+				5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */,
+			);
+			name = "Complex Mocks";
 			sourceTree = "<group>";
 		};
 		5CE9FA8D1649A3EF00ED0C13 /* OCMock */ = {
@@ -424,6 +437,7 @@
 				5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */,
 				5C75A9FC1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
 				5C1504B8164F134300B36F49 /* KSQuestionBuilder.m in Sources */,
+				5C1504BC164FDD6400B36F49 /* KSQuestionBuilderMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

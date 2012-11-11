@@ -16,9 +16,14 @@
 #import "OCMockObject.h"
 #import "OCMConstraint.h"
 
+#import "KSQuestionBuilderMock.h"
+
 @implementation KSQuestionCreationTests
 {
+  @private
+  NSError *_underlyingError;
   KSStackOverflowManager *_mgr;
+  id _delegate;
 }
 
 #pragma mark - Set up & tear down
@@ -26,11 +31,17 @@
 - (void) setUp
 {
   _mgr = [[KSStackOverflowManager alloc] init];
+  _delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
+  _underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
+  
+  _mgr.delegate = _delegate;
 }
 
 - (void) tearDown
 {
   _mgr = nil;
+  _delegate = nil;
+  _underlyingError = nil;
 }
 
 - (void) testNonConformingObjectCannotBeDelegate
@@ -40,8 +51,7 @@
 
 - (void) testConformingObjectCanBeDelegate
 {
-  id <KSStackOverflowManagerDelegate> delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
-  STAssertNoThrow(_mgr.delegate = delegate, @"Conforming object can be delegate");
+  STAssertNoThrow(_mgr.delegate = _delegate, @"Conforming object can be delegate");
 }
 
 - (void) testManagerAcceptsNilAsADelegate
@@ -66,50 +76,62 @@
 
 - (void) testErrorReturnedToDelegateIsNotErrorNotifiedByCommunicator
 {
-  id delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
-  
-  [[delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
+  [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
     return [arg isKindOfClass:[NSError class]] && [[(NSError *)arg domain] isEqualToString:KSStackOverflowManagerError];
   }]];
   
-  _mgr.delegate = delegate;
-  NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
+  [_mgr searchingForQuestionsFailedWithError:_underlyingError];
   
-  [_mgr searchingForQuestionsFailedWithError:underlyingError];
-  
-  [delegate verify];
+  [_delegate verify];
 }
 
 - (void) testErrorReturnedToDelegateDocumentsUnderlyingError
 {
-  id delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
+  _mgr.delegate = _delegate;
   
-  _mgr.delegate = delegate;
-  NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
-  
-  [[delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
-    return [[arg userInfo] objectForKey:NSUnderlyingErrorKey] == underlyingError;
+  [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
+    return [[arg userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
   }]];
   
-  [_mgr searchingForQuestionsFailedWithError:underlyingError];
+  [_mgr searchingForQuestionsFailedWithError:_underlyingError];
 
-  [delegate verify];
+  [_delegate verify];
 }
 
 - (void) testQuestionJSONIsPassedToQuestionBuilder
 {
-  id builder = [OCMockObject mockForClass:[KSQuestionBuilder class]];
+  KSQuestionBuilderMock *builder = [[KSQuestionBuilderMock alloc] init];
+
+  builder.arrayToReturn = nil;
+  builder.errorToSet = nil;
   
-  [[builder expect] questionsFromJSON:[OCMArg checkWithBlock:^BOOL(id obj) {
-    return [obj isKindOfClass:[NSString class]] && [obj isEqualToString:@"{ \"fake\": \"json\" }"];
-  }] error:nil];
+  [[_delegate stub] fetchingQuestionsFailedWithError:[OCMArg any]];
   
   _mgr.questionBuilder = builder;
   [_mgr receivedQuestionJSON:@"{ \"fake\": \"json\" }"];
   
   _mgr.questionBuilder = nil;
   
-  [builder verify];
+  STAssertEqualObjects(builder.JSON, @"{ \"fake\": \"json\" }", @"Builder is called by manager");
+}
+
+- (void) testDelegateNotifiedOfErrorWhenQuestionBuilderFails
+{
+  KSQuestionBuilderMock *builder = [[KSQuestionBuilderMock alloc] init];
+
+  builder.arrayToReturn = nil;
+  builder.errorToSet = _underlyingError;
+  
+  [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
+    return [[obj userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
+  }]];
+  
+  _mgr.questionBuilder = builder;
+  [_mgr receivedQuestionJSON:@"{ \"fake\": \"json\" }"];
+  
+  _mgr.questionBuilder = nil;
+  
+  [_delegate verify];
 }
 
 @end

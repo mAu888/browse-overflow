@@ -10,7 +10,7 @@
 
 @implementation KSQuestionBuilder
 
-- (NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError *__autoreleasing *)error
+- (NSArray *) questionsFromJSON:(NSString *)objectNotation error:(NSError *__autoreleasing *)error
 {
   return nil;
 }
