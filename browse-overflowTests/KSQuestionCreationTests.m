@@ -160,4 +160,17 @@
   [_delegate verify];
 }
 
+- (void) testEmptyArrayIsPassedToDelegate
+{
+  _questionBuilder.arrayToReturn = [NSArray array];
+  
+  [[_delegate expect] didReceiveQuestions:[OCMArg checkWithBlock:^BOOL(id obj) {
+    return [obj isKindOfClass:[NSArray class]] && [obj count] == 0;
+  }]];
+  
+  [_mgr receivedQuestionJSON:_questionJSON];
+  
+  [_delegate verify];
+}
+
 @end
