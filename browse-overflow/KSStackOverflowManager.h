@@ -21,6 +21,7 @@ enum {
 
 @protocol KSStackOverflowManagerDelegate <NSObject>
 
+- (void) didReceiveQuestions:(NSArray *)questions;
 - (void) fetchingQuestionsFailedWithError:(NSError *)error;
 
 @property (strong) NSError *fetchError;

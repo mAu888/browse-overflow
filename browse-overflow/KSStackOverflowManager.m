@@ -58,6 +58,10 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   {
     [self notifyDelegateAboutQuestionSearchError:error];
   }
+  else
+  {
+    [_delegate didReceiveQuestions:questions];
+  }
 }
 
 #pragma mark - Private methods
