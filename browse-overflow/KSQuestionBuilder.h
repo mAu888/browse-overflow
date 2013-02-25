@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *KSQuestionBuilderErrorDomain;
+
+enum {
+  KSQuestionBuilderInvalidJSONError = 0,
+  KSQuestionBuilderMissingDataError
+};
+
 @interface KSQuestionBuilder : NSObject
 
 - (NSArray *) questionsFromJSON:(NSString *)objectNotation error:(NSError **)error;

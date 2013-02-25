@@ -8,6 +8,7 @@
 
 #import "KSQuestion.h"
 #import "KSAnswer.h"
+#import "KSPerson.h"
 
 @implementation KSQuestion
 {
@@ -33,9 +34,5 @@
 {
   return [[_answersSet allObjects] sortedArrayUsingSelector:@selector(compare:)];
 }
-
-@synthesize title = _title;
-@synthesize date = _date;
-@synthesize score = _score;
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class KSAnswer;
+@class KSPerson;
 
 @interface KSQuestion : NSObject
 
@@ -17,6 +18,8 @@
 @property (nonatomic) NSArray *answers;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) KSPerson *asker;
 @property (nonatomic, assign) int score;
+@property (nonatomic, assign) int questionID;
 
 @end

@@ -11,7 +11,7 @@
 extern NSString *KSStackOverflowManagerError;
 
 enum {
-  kKSStackOverflowManagerErrorQuestionSearchCode
+  kKSStackOverflowManagerErrorQuestionSearchCode = 0
 };
 
 @class KSTopic;

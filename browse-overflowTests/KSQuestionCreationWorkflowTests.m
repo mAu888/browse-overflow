@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Mauricio Hanika. All rights reserved.
 //
 
-#import "KSQuestionCreationTests.h"
+#import "KSQuestionCreationWorkflowTests.h"
 #import "KSStackOverflowManager.h"
 #import "KSStackOverflowCommunicator.h"
 #import "KSQuestionBuilder.h"
@@ -19,7 +19,7 @@
 
 #import "KSQuestionBuilderMock.h"
 
-@implementation KSQuestionCreationTests
+@implementation KSQuestionCreationWorkflowTests
 {
   @private
   NSError *_underlyingError;
