@@ -21,5 +21,6 @@
 @property (nonatomic, strong) KSPerson *asker;
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) int questionID;
+@property (nonatomic, strong) NSString *body;
 
 @end

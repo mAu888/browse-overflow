@@ -15,4 +15,8 @@
   
 }
 
+- (void) fetchBodyForQuestion:(KSQuestion *)question
+{
+}
+
 @end

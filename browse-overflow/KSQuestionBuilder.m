@@ -63,4 +63,16 @@ NSString *KSQuestionBuilderErrorDomain = @"KSQuestionBuilderErrorDomain";
   return [NSArray arrayWithArray:questions];
 }
 
+- (void) fillInDetailsForQuestion:(KSQuestion *)question json:(NSString *)json
+{
+  NSAssert(json != nil, @"JSON may not be nil");
+  NSAssert(question != nil, @"Filling data with no question is not possible");
+  
+  NSDictionary *parsedJSON = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
+  if (! [parsedJSON isKindOfClass:[NSDictionary class]])
+    return;
+  
+  question.body = [parsedJSON[@"questions"] lastObject][@"body"];
+}
+
 @end

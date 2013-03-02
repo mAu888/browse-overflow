@@ -44,6 +44,11 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   [self.communicator searchForQuestionsWithTag:[topic tag]];
 }
 
+- (void) fetchBodyForQuestion:(KSQuestion *)question {
+  self.questionToFill = question;
+  [self.communicator fetchBodyForQuestion:question];
+}
+
 - (void) searchingForQuestionsFailedWithError:(NSError *)error
 {
   [self notifyDelegateAboutQuestionSearchError:error];
@@ -64,7 +69,19 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   }
 }
 
-#pragma mark - Private methods
+- (void) receivedQuestionBodyJSON:(NSString *)json
+{
+  [_questionBuilder fillInDetailsForQuestion:self.questionToFill json:json];
+}
+
+- (void) fetchingQuestionBodyFailedWithError:(NSError *)error
+{
+  if (_delegate != nil && [_delegate respondsToSelector:@selector(setFetchError:)])
+    [_delegate setFetchError:error];
+}
+
+#pragma mark -
+#pragma mark Private methods
 
 - (void) notifyDelegateAboutQuestionSearchError:(NSError *)underlyingError
 {

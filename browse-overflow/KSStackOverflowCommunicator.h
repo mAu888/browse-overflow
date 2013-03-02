@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class KSTopic;
+@class KSQuestion;
 
 @interface KSStackOverflowCommunicator : NSObject
 
 - (void) searchForQuestionsWithTag:(NSString *)tag;
+- (void) fetchBodyForQuestion:(KSQuestion *)question;
 
 @end

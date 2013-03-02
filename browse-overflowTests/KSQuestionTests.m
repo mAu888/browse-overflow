@@ -9,6 +9,7 @@
 #import "KSQuestionTests.h"
 #import "KSQuestion.h"
 #import "KSAnswer.h"
+#import "KSPerson.h"
 
 @implementation KSQuestionTests
 {
@@ -16,6 +17,7 @@
   KSAnswer *_accepted;
   KSAnswer *_highScore;
   KSAnswer *_lowScore;
+  KSPerson *_asker;
   
   NSString *_sharedTitle;
   NSDate *_sharedDate;
@@ -30,7 +32,10 @@
   _sharedDate = [NSDate distantPast];
   _sharedScore = 42;
   
+  _asker = [[KSPerson alloc] initWithName:@"John Doe" avatarLocation:@""];
+  
   _question = [[KSQuestion alloc] init];
+  _question.asker = _asker;
   _question.title = _sharedTitle;
   _question.date = _sharedDate;
   _question.score = _sharedScore;
@@ -57,6 +62,7 @@
   _sharedDate = nil;
   _sharedScore = -1;
   
+  _asker = nil;
   _question = nil;
   
   _accepted = nil;
@@ -100,6 +106,11 @@
   NSUInteger lowIndex = [answers indexOfObject:_lowScore];
   
   STAssertTrue(highIndex < lowIndex, @"Higher rated answer should come first");
+}
+
+- (void) testQuestionWasAskedBySomeone
+{
+  STAssertEqualObjects(_question.asker, _asker, @"Question has correct askter assigned");
 }
 
 @end

@@ -197,7 +197,7 @@
 - (void) testDelegateNotifiedOfFailureToFetchQuestion
 {
   [[_delegate expect] setFetchError:[OCMArg checkWithBlock:^BOOL(id obj) {
-    [obj isKindOfClass:[NSError class]];
+    return [obj isKindOfClass:[NSError class]];
   }]];
   
   [_mgr fetchingQuestionBodyFailedWithError:_underlyingError];
@@ -213,9 +213,13 @@
 
 - (void) testManagerPassesQuestionItWasSentToQuestionBuilderForFillingIn
 {
+  [[_communicator expect] fetchBodyForQuestion:[OCMArg any]];
+  
   [_mgr fetchBodyForQuestion:_questionToFetch];
-  [_mgr receivedQuestionJSON:@"Fake JSON"];
+  [_mgr receivedQuestionBodyJSON:@"Fake JSON"];
   STAssertEqualObjects(_questionBuilder.questionToFill, _questionToFetch, @"The question should have been passed to the builder");
+  
+  [_communicator verify];
 }
 
 @end
