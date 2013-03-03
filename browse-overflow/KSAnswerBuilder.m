@@ -7,27 +7,48 @@
 //
 
 #import "KSAnswerBuilder.h"
+#import "KSAnswer.h"
 #import "KSQuestion.h"
+#import "KSPerson.h"
 
 NSString * const KSAnswerBuilderErrorDomain = @"KSAnswerBuilderErrorDomain";
 
 @implementation KSAnswerBuilder
 
-- (NSArray *) addAnswersToQuestion:(KSQuestion *)question fromJSON:(NSString *)json error:(NSError *__autoreleasing *)error
+- (BOOL) addAnswersToQuestion:(KSQuestion *)question fromJSON:(NSString *)json error:(NSError *__autoreleasing *)error
 {
   NSAssert(json != nil, @"Can not handle nil json");
   NSAssert(question != nil, @"Can not handle nil question");
   
-  id jsonObject = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
+  NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
   if (jsonObject == nil)
   {
     if (error != NULL)
       *error = [NSError errorWithDomain:KSAnswerBuilderErrorDomain code:KSAnswerBuilderInvalidJSONError userInfo:nil];
     
-    return nil;
+    return NO;
   }
   
-  return nil;
+  NSArray *items = jsonObject[@"items"];
+  if (items == nil)
+  {
+    if (error != NULL)
+      *error = [NSError errorWithDomain:KSAnswerBuilderErrorDomain code:KSAnswerBuilderNoAnswersJSONError userInfo:nil];
+    
+    return NO;
+  }
+  
+  for (NSDictionary *answerJSON in items)
+  {
+    KSAnswer *answer = [[KSAnswer alloc] init];
+    answer.score = [answerJSON[@"score"] intValue];
+    answer.accepted = [answerJSON[@"is_accepted"] boolValue];
+    answer.person = [[KSPerson alloc] initWithName:answerJSON[@"owner"][@"display_name"] avatarLocation:answerJSON[@"owner"][@"profile_image"]];
+    
+    [question addAnswer:answer];
+  }
+  
+  return YES;
 }
 
 @end

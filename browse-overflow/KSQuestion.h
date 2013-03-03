@@ -15,7 +15,7 @@
 
 - (void) addAnswer:(KSAnswer *)answer;
 
-@property (nonatomic) NSArray *answers;
+@property (nonatomic, readonly) NSArray *answers;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) KSPerson *asker;

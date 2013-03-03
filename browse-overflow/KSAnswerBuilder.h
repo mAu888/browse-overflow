@@ -11,13 +11,14 @@
 extern NSString * const KSAnswerBuilderErrorDomain;
 
 NS_ENUM(int, KSAnswerBuilderError) {
-  KSAnswerBuilderInvalidJSONError = 0
+  KSAnswerBuilderInvalidJSONError,
+  KSAnswerBuilderNoAnswersJSONError
 };
 
 @class KSQuestion;
 
 @interface KSAnswerBuilder : NSObject
 
-- (NSArray *) addAnswersToQuestion:(KSQuestion *)question fromJSON:(NSString *)json error:(NSError **)error;
+- (BOOL) addAnswersToQuestion:(KSQuestion *)question fromJSON:(NSString *)json error:(NSError **)error;
 
 @end
