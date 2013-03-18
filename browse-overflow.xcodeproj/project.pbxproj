@@ -47,6 +47,7 @@
 		5C83285516486A7700439674 /* KSQuestionCreationWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285416486A7700439674 /* KSQuestionCreationWorkflowTests.m */; };
 		5C83285916486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
 		5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
+		5C8387E516F7BC3500CE31C9 /* KSPersonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8387E416F7BC3500CE31C9 /* KSPersonBuilder.m */; };
 		5CE9FA951649A3EF00ED0C13 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		5C83285416486A7700439674 /* KSQuestionCreationWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionCreationWorkflowTests.m; sourceTree = "<group>"; };
 		5C83285716486B6800439674 /* KSStackOverflowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowManager.h; sourceTree = "<group>"; };
 		5C83285816486B6800439674 /* KSStackOverflowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowManager.m; sourceTree = "<group>"; };
+		5C8387E316F7BC3500CE31C9 /* KSPersonBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPersonBuilder.h; sourceTree = "<group>"; };
+		5C8387E416F7BC3500CE31C9 /* KSPersonBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPersonBuilder.m; sourceTree = "<group>"; };
 		5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		5CE9FA8F1649A3EF00ED0C13 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		5CE9FA901649A3EF00ED0C13 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				5C83285816486B6800439674 /* KSStackOverflowManager.m */,
 				5C0163AD164534F100CD5C40 /* KSTopic.h */,
 				5C0163AE164534F100CD5C40 /* KSTopic.m */,
+				5C8387E316F7BC3500CE31C9 /* KSPersonBuilder.h */,
+				5C8387E416F7BC3500CE31C9 /* KSPersonBuilder.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				5C75A9FB1649A53C00FC7903 /* KSStackOverflowCommunicator.m in Sources */,
 				5C1504B7164F130D00B36F49 /* KSQuestionBuilder.m in Sources */,
 				5C1EE2B316E20FB000F0AB67 /* KSAnswerBuilder.m in Sources */,
+				5C8387E516F7BC3500CE31C9 /* KSPersonBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

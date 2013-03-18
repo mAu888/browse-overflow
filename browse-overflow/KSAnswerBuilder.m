@@ -10,6 +10,7 @@
 #import "KSAnswer.h"
 #import "KSQuestion.h"
 #import "KSPerson.h"
+#import "KSPersonBuilder.h"
 
 NSString * const KSAnswerBuilderErrorDomain = @"KSAnswerBuilderErrorDomain";
 
@@ -43,7 +44,7 @@ NSString * const KSAnswerBuilderErrorDomain = @"KSAnswerBuilderErrorDomain";
     KSAnswer *answer = [[KSAnswer alloc] init];
     answer.score = [answerJSON[@"score"] intValue];
     answer.accepted = [answerJSON[@"is_accepted"] boolValue];
-    answer.person = [[KSPerson alloc] initWithName:answerJSON[@"owner"][@"display_name"] avatarLocation:answerJSON[@"owner"][@"profile_image"]];
+    answer.person = [KSPersonBuilder personFromDictionary:answerJSON[@"owner"]];
     
     [question addAnswer:answer];
   }

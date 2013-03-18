@@ -125,7 +125,7 @@ static NSString *noQuestionsJSON = @"{ \"questions\": [] }";
   
   KSPerson *person = _question.asker;
   STAssertEqualObjects(person.name, @"Aidan Dwyer", @"The asker name should match");
-  STAssertEqualObjects(person.avatarURL, @"http://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", @"The avatar url should match");
+  STAssertEqualObjects([person.avatarURL absoluteString], @"http://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", @"The avatar url should match");
 }
 
 - (void) testBuildingQuestionWithNoDataCannotBeTried

@@ -9,6 +9,7 @@
 #import "KSQuestionBuilder.h"
 #import "KSQuestion.h"
 #import "KSPerson.h"
+#import "KSPersonBuilder.h"
 
 NSString *KSQuestionBuilderErrorDomain = @"KSQuestionBuilderErrorDomain";
 
@@ -53,9 +54,7 @@ NSString *KSQuestionBuilderErrorDomain = @"KSQuestionBuilderErrorDomain";
     question.score = [questionObject[@"score"] intValue];
     question.date = [NSDate dateWithTimeIntervalSince1970:[questionObject[@"creation_date"] intValue]];
     
-    question.asker = [[KSPerson alloc] init];
-    question.asker.name = questionObject[@"owner"][@"display_name"];
-    question.asker.avatarURL = questionObject[@"owner"][@"profile_image"];
+    question.asker = [KSPersonBuilder personFromDictionary:questionObject[@"owner"]];
     
     [questions addObject:question];
   }
