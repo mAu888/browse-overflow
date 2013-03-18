@@ -12,7 +12,7 @@
 
 - (void) searchForQuestionsWithTag:(NSString *)tag
 {
-  
+  _fetchingURL = [NSURL URLWithString:@"http://api.stackoverflow.com/1.1/search?tagged=ios&pagesize=20"];
 }
 
 - (void) fetchBodyForQuestion:(KSQuestion *)question

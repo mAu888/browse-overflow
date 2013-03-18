@@ -48,6 +48,8 @@
 		5C83285916486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
 		5C83285A16486B6800439674 /* KSStackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83285816486B6800439674 /* KSStackOverflowManager.m */; };
 		5C8387E516F7BC3500CE31C9 /* KSPersonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8387E416F7BC3500CE31C9 /* KSPersonBuilder.m */; };
+		5C8387E816F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8387E716F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.m */; };
+		5C8387EC16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8387EB16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.m */; };
 		5CE9FA951649A3EF00ED0C13 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,10 @@
 		5C83285816486B6800439674 /* KSStackOverflowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowManager.m; sourceTree = "<group>"; };
 		5C8387E316F7BC3500CE31C9 /* KSPersonBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPersonBuilder.h; sourceTree = "<group>"; };
 		5C8387E416F7BC3500CE31C9 /* KSPersonBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPersonBuilder.m; sourceTree = "<group>"; };
+		5C8387E616F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStackOverflowCommunicatorTests.h; sourceTree = "<group>"; };
+		5C8387E716F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStackOverflowCommunicatorTests.m; sourceTree = "<group>"; };
+		5C8387EA16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSInspectableStackOverflowCommunicator.h; sourceTree = "<group>"; };
+		5C8387EB16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSInspectableStackOverflowCommunicator.m; sourceTree = "<group>"; };
 		5CE9FA8E1649A3EF00ED0C13 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		5CE9FA8F1649A3EF00ED0C13 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		5CE9FA901649A3EF00ED0C13 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 		5C016395164531BA00CD5C40 /* browse-overflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				5C8387E916F7C5D200CE31C9 /* Inspectables */,
 				5C1504B9164FDD4C00B36F49 /* Complex Mocks */,
 				5C0163C01645508200CD5C40 /* KSAnswerTests.h */,
 				5C0163C11645508200CD5C40 /* KSAnswerTests.m */,
@@ -223,6 +230,8 @@
 				5C83285416486A7700439674 /* KSQuestionCreationWorkflowTests.m */,
 				5C0163B216453BFE00CD5C40 /* KSQuestionTests.h */,
 				5C0163B316453BFE00CD5C40 /* KSQuestionTests.m */,
+				5C8387E616F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.h */,
+				5C8387E716F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.m */,
 				5C0163A91645348600CD5C40 /* KSTopicTests.h */,
 				5C0163AA1645348600CD5C40 /* KSTopicTests.m */,
 				5C016396164531BA00CD5C40 /* Supporting Files */,
@@ -301,6 +310,15 @@
 				5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */,
 			);
 			name = "Complex Mocks";
+			sourceTree = "<group>";
+		};
+		5C8387E916F7C5D200CE31C9 /* Inspectables */ = {
+			isa = PBXGroup;
+			children = (
+				5C8387EA16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.h */,
+				5C8387EB16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.m */,
+			);
+			name = Inspectables;
 			sourceTree = "<group>";
 		};
 		5CE9FA8D1649A3EF00ED0C13 /* OCMock */ = {
@@ -464,6 +482,8 @@
 				5C1504BF164FEB2200B36F49 /* KSQuestionBuilderTests.m in Sources */,
 				5C1EE2B016E20F0B00F0AB67 /* KSAnswerBuilderTests.m in Sources */,
 				5C1EE2B416E20FBD00F0AB67 /* KSAnswerBuilder.m in Sources */,
+				5C8387E816F7C4FA00CE31C9 /* KSStackOverflowCommunicatorTests.m in Sources */,
+				5C8387EC16F7C5E800CE31C9 /* KSInspectableStackOverflowCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

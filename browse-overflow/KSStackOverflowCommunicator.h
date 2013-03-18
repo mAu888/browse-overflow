@@ -11,7 +11,11 @@
 @class KSTopic;
 @class KSQuestion;
 
-@interface KSStackOverflowCommunicator : NSObject
+@interface KSStackOverflowCommunicator : NSObject {
+  @protected
+  NSURL *_fetchingURL;
+}
+
 
 - (void) searchForQuestionsWithTag:(NSString *)tag;
 - (void) fetchBodyForQuestion:(KSQuestion *)question;
