@@ -10,8 +10,14 @@
 
 @implementation KSInspectableStackOverflowCommunicator
 
-- (NSURL *) URLToFetch {
+- (NSURL *) URLToFetch
+{
   return _fetchingURL;
+}
+
+- (NSURLConnection *) currentURLConnection
+{
+  return _fetchingConnection;
 }
 
 @end

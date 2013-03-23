@@ -11,5 +11,7 @@
 @interface KSInspectableStackOverflowCommunicator : KSStackOverflowCommunicator
 
 - (NSURL *) URLToFetch;
+- (NSURLConnection *) currentURLConnection;
+
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "KSStackOverflowManager.h"
-#import "KSStackOverflowCommunicator.h"
 #import "KSQuestionBuilder.h"
 #import "KSTopic.h"
 

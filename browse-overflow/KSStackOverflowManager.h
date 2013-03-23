@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Mauricio Hanika. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "KSStackOverflowCommunicator.h"
 
 extern NSString *KSStackOverflowManagerError;
 
@@ -30,7 +30,7 @@ enum {
 @end
 
 
-@interface KSStackOverflowManager : NSObject
+@interface KSStackOverflowManager : NSObject <KSStackOverflowCommunicatorDelegate>
 
 - (void) fetchQuestionsOnTopic:(KSTopic *)topic;
 - (void) fetchBodyForQuestion:(KSQuestion *)question;
