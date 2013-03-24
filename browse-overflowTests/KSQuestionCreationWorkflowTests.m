@@ -18,6 +18,7 @@
 #import "OCMConstraint.h"
 
 #import "KSQuestionBuilderMock.h"
+#import "KSStackOverflowCommunicator.h"
 
 @implementation KSQuestionCreationWorkflowTests
 {
@@ -25,8 +26,12 @@
   NSError *_underlyingError;
   NSArray *_questionArray;
   NSString *_questionJSON;
+  
   KSStackOverflowManager *_mgr;
   KSQuestionBuilderMock *_questionBuilder;
+  KSQuestion *_questionToFetch;
+  
+  id _communicator;
   id _delegate;
 }
 
@@ -37,13 +42,18 @@
   _mgr = [[KSStackOverflowManager alloc] init];
   _delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
   _underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
-  _questionArray = @[[[KSQuestion alloc] init]];
   _questionJSON = @"{ \"fake\": \"json\" }";
   
   _questionBuilder = [[KSQuestionBuilderMock alloc] init];
   
+  _questionToFetch = [[KSQuestion alloc] init];
+  _questionToFetch.questionID = 1234;
+  _questionArray = @[_questionToFetch];
+  _communicator = [OCMockObject mockForClass:[KSStackOverflowCommunicator class]];
+  
   _mgr.delegate = _delegate;
   _mgr.questionBuilder = _questionBuilder;
+  _mgr.communicator = _communicator;
 }
 
 - (void) tearDown
@@ -51,10 +61,11 @@
   _mgr = nil;
   _delegate = nil;
   _underlyingError = nil;
-  _questionArray = nil;
   _questionJSON = nil;
-  
   _questionBuilder = nil;
+  _questionToFetch = nil;
+  _questionArray = nil;
+  _communicator = nil;
 }
 
 - (void) testNonConformingObjectCannotBeDelegate
@@ -103,7 +114,7 @@
   _mgr.delegate = _delegate;
   
   [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
-    return [[arg userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
+    return [arg userInfo][NSUnderlyingErrorKey] == _underlyingError;
   }]];
   
   [_mgr searchingForQuestionsFailedWithError:_underlyingError];
@@ -127,7 +138,7 @@
   _questionBuilder.errorToSet = _underlyingError;
   
   [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
-    return [[obj userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
+    return [obj userInfo][NSUnderlyingErrorKey] == _underlyingError;
   }]];
   
   [_mgr receivedQuestionJSON:_questionJSON];
@@ -162,7 +173,7 @@
 
 - (void) testEmptyArrayIsPassedToDelegate
 {
-  _questionBuilder.arrayToReturn = [NSArray array];
+  _questionBuilder.arrayToReturn = @[];
   
   [[_delegate expect] didReceiveQuestions:[OCMArg checkWithBlock:^BOOL(id obj) {
     return [obj isKindOfClass:[NSArray class]] && [obj count] == 0;
@@ -171,6 +182,42 @@
   [_mgr receivedQuestionJSON:_questionJSON];
   
   [_delegate verify];
+}
+
+- (void) testAskingForQuestionBodyMeansRequesingData
+{
+  [[_communicator expect] downloadInformationForQuestionWithID:1234];
+  [_mgr fetchBodyForQuestion:_questionToFetch];
+  
+  [_communicator verify];
+}
+
+- (void) testDelegateNotifiedOfFailureToFetchQuestion
+{
+  [[_delegate expect] setFetchError:[OCMArg checkWithBlock:^BOOL(id obj) {
+    return [obj isKindOfClass:[NSError class]];
+  }]];
+  
+  [_mgr fetchingQuestionBodyFailedWithError:_underlyingError];
+  
+  [_delegate verify];
+}
+
+- (void) testManagerPassesRetrievedQuestionBodyToQuesionBuilder
+{
+  [_mgr receivedQuestionBodyJSON:@"Fake JSON"];
+  STAssertEqualObjects(_questionBuilder.JSON, @"Fake JSON", @"Passed json to question builder should match");
+}
+
+- (void) testManagerPassesQuestionItWasSentToQuestionBuilderForFillingIn
+{
+  [[_communicator expect] downloadInformationForQuestionWithID:1234];
+  
+  [_mgr fetchBodyForQuestion:_questionToFetch];
+  [_mgr receivedQuestionBodyJSON:@"Fake JSON"];
+  STAssertEqualObjects(_questionBuilder.questionToFill, _questionToFetch, @"The question should have been passed to the builder");
+  
+  [_communicator verify];
 }
 
 @end

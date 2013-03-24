@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Mauricio Hanika. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "KSStackOverflowCommunicator.h"
 
 extern NSString *KSStackOverflowManagerError;
 
@@ -15,6 +15,7 @@ enum {
 };
 
 @class KSTopic;
+@class KSQuestion;
 @class KSQuestionBuilder;
 @class KSStackOverflowCommunicator;
 
@@ -29,14 +30,14 @@ enum {
 @end
 
 
-@interface KSStackOverflowManager : NSObject
+@interface KSStackOverflowManager : NSObject <KSStackOverflowCommunicatorDelegate>
 
 - (void) fetchQuestionsOnTopic:(KSTopic *)topic;
-- (void) searchingForQuestionsFailedWithError:(NSError *)error;
-- (void) receivedQuestionJSON:(NSString *)objectNotation;
+- (void) fetchBodyForQuestion:(KSQuestion *)question;
 
 @property (nonatomic, strong) KSStackOverflowCommunicator *communicator;
 @property (nonatomic, strong) KSQuestionBuilder *questionBuilder;
+@property (nonatomic, strong) KSQuestion *questionToFill;
 @property (nonatomic, weak) id<KSStackOverflowManagerDelegate> delegate;
 
 @end

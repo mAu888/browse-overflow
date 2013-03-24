@@ -15,11 +15,12 @@
 
 - (void) addAnswer:(KSAnswer *)answer;
 
-@property (nonatomic) NSArray *answers;
+@property (nonatomic, readonly) NSArray *answers;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) KSPerson *asker;
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) int questionID;
+@property (nonatomic, strong) NSString *body;
 
 @end

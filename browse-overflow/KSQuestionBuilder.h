@@ -10,6 +10,8 @@
 
 extern NSString *KSQuestionBuilderErrorDomain;
 
+@class KSQuestion;
+
 enum {
   KSQuestionBuilderInvalidJSONError = 0,
   KSQuestionBuilderMissingDataError
@@ -18,5 +20,6 @@ enum {
 @interface KSQuestionBuilder : NSObject
 
 - (NSArray *) questionsFromJSON:(NSString *)objectNotation error:(NSError **)error;
+- (void) fillInDetailsForQuestion:(KSQuestion *)question json:(NSString *)json;
 
 @end

@@ -7,18 +7,21 @@
 //
 
 #import "KSQuestionBuilderMock.h"
+#import "KSQuestion.h"
 
 @implementation KSQuestionBuilderMock
-
-@synthesize JSON = _JSON;
-@synthesize arrayToReturn = _arrayToReturn;
-@synthesize errorToSet = _errorToSet;
 
 - (NSArray *) questionsFromJSON:(NSString *)objectNotation error:(NSError *__autoreleasing *)error
 {
   _JSON = objectNotation;
   *error = _errorToSet;
   return _arrayToReturn;
+}
+
+- (void) fillInDetailsForQuestion:(KSQuestion *)question json:(NSString *)json
+{
+  _JSON = json;
+  _questionToFill = question;
 }
 
 @end

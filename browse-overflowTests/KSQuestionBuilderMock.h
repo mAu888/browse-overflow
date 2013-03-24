@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "KSQuestionBuilder.h"
 
+@class KSQuestion;
+
 @interface KSQuestionBuilderMock : KSQuestionBuilder
 
 @property (strong) NSString *JSON;
 @property (strong) NSArray *arrayToReturn;
 @property (strong) NSError *errorToSet;
+@property (strong) KSQuestion *questionToFill;
 
 @end

@@ -9,9 +9,35 @@
 #import <Foundation/Foundation.h>
 
 @class KSTopic;
+@class KSQuestion;
 
-@interface KSStackOverflowCommunicator : NSObject
+@protocol KSStackOverflowCommunicatorDelegate <NSObject>
+
+- (void) receivedQuestionJSON:(NSString *)json;
+- (void) searchingForQuestionsFailedWithError:(NSError *)error;
+- (void) fetchingQuestionBodyFailedWithError:(NSError *)error;
+- (void) receivedQuestionBodyJSON:(NSString *)json;
+- (void) fetchingAnswersFailedWithError:(NSError *)error;
+- (void) receivedAnswersJSON:(NSString *)json;
+@end
+
+
+@interface KSStackOverflowCommunicator : NSObject <NSURLConnectionDataDelegate>
+{
+  @protected
+  NSURL *_fetchingURL;
+  NSURLConnection *_fetchingConnection;
+  
+  NSData *_receivedData;
+}
+
+@property (nonatomic, weak) id<KSStackOverflowCommunicatorDelegate> delegate;
 
 - (void) searchForQuestionsWithTag:(NSString *)tag;
+
+- (void) downloadInformationForQuestionWithID:(NSUInteger)identifier;
+- (void) downloadAnswersToQuestionWithID:(NSUInteger)identifier;
+
+- (void) cancelAndDiscardURLConnection;
 
 @end

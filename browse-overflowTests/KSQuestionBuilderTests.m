@@ -50,15 +50,18 @@ static NSString *questionJSON = @"{"
 @"    \"view_count\": 16,"
 @"    \"score\": -1,"
 @"    \"community_owned\": false,"
-@"    \"title\": \"CSS style sheet not affecting my html file when I open it from my computer\""
+@"    \"title\": \"CSS style sheet not affecting my html file when I open it from my computer\","
+@"    \"body\": \"<p>I am using datatables</p>\""
 @"  }"
 @"]"
 @"}";
 
+static NSString *noQuestionsJSON = @"{ \"questions\": [] }";
+
 - (void) setUp
 {
   _questionBuilder = [[KSQuestionBuilder alloc] init];
-  _question = [[_questionBuilder questionsFromJSON:questionJSON error:NULL] objectAtIndex:0];
+  _question = [_questionBuilder questionsFromJSON:questionJSON error:NULL][0];
 }
 
 - (void) tearDown
@@ -96,7 +99,8 @@ static NSString *questionJSON = @"{"
   STAssertNil([_questionBuilder questionsFromJSON:jsonString error:NULL], @"Should not parse json without questions");
 }
 
-- (void) testRealJSONWithoutQuestionsReturnsMissingDataError {
+- (void) testRealJSONWithoutQuestionsReturnsMissingDataError
+{
   NSString *jsonString = @"{ \"noquestions\": true }";
   
   NSError *error = nil;
@@ -105,13 +109,15 @@ static NSString *questionJSON = @"{"
   STAssertEquals([error code], KSQuestionBuilderMissingDataError, @"Empty json should return appropriate error");
 }
 
-- (void) testJSONWithOneQuestionReturnsOneQuestionObject {
+- (void) testJSONWithOneQuestionReturnsOneQuestionObject
+{
   NSError *error = nil;
   NSArray *questions = [_questionBuilder questionsFromJSON:questionJSON error:&error];
   STAssertEquals(questions.count, (NSUInteger)1, @"Question builder should return one question");
 }
 
-- (void) testQuestionCreatedFromJSONHasPropertiesPresentedInJSON {
+- (void) testQuestionCreatedFromJSONHasPropertiesPresentedInJSON
+{
   STAssertEquals(_question.questionID, 15054027, @"The question id should match");
   STAssertEquals([_question.date timeIntervalSince1970], (NSTimeInterval)1361724582, @"The date should match");
   STAssertEqualObjects(_question.title, @"CSS style sheet not affecting my html file when I open it from my computer", @"The questions title should match");
@@ -119,7 +125,35 @@ static NSString *questionJSON = @"{"
   
   KSPerson *person = _question.asker;
   STAssertEqualObjects(person.name, @"Aidan Dwyer", @"The asker name should match");
-  STAssertEqualObjects(person.avatarURL, @"http://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", @"The avatar url should match");
+  STAssertEqualObjects([person.avatarURL absoluteString], @"http://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", @"The avatar url should match");
+}
+
+- (void) testBuildingQuestionWithNoDataCannotBeTried
+{
+  STAssertThrows([_questionBuilder fillInDetailsForQuestion:_question json:nil], @"Question with no data can not be created");
+}
+
+- (void) testBuildingQuestionsWithNoQuestionCannotBeTried
+{
+  STAssertThrows([_questionBuilder fillInDetailsForQuestion:nil json:@"Fake JSON"], @"Filling in data with no question is not possible");
+}
+
+- (void) testNonJSONDataDoesNotCauseABodyToBeAddedToAQuestion
+{
+  [_questionBuilder fillInDetailsForQuestion:_question json:@"Fake JSON"];
+  STAssertNil(_question.body, @"Question has no body when received invalid JSON");
+}
+
+- (void) testJSONWhichDoesNotContainABodyDoesNotCauseBodyToBeAdded
+{
+  [_questionBuilder fillInDetailsForQuestion:_question json:noQuestionsJSON];
+  STAssertNil(_question.body, @"No body to add");
+}
+
+- (void) testBodyContainedInJSONIsAddedToQuestion
+{
+  [_questionBuilder fillInDetailsForQuestion:_question json:questionJSON];
+  STAssertEqualObjects(_question.body, @"<p>I am using datatables</p>", @"Correct question body should have been set");
 }
 
 @end
