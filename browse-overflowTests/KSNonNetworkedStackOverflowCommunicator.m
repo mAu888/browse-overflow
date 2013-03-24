@@ -10,6 +10,11 @@
 
 @implementation KSNonNetworkedStackOverflowCommunicator
 
+- (void) launchConnectionForRequest:(NSURLRequest *)request
+{
+  // noop
+}
+
 - (NSData *) receivedData
 {
   return _receivedData;

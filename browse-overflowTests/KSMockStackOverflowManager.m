@@ -10,8 +10,12 @@
 
 @implementation KSMockStackOverflowManager
 {
-  NSUInteger *_topicFailureErrorCode;
+  NSUInteger _topicFailureErrorCode;
   NSString *_topicSearchString;
+  NSUInteger _questionBodyFailureErrorCode;
+  NSString *_questionBodyString;
+  NSUInteger _answerFailureErrorCode;
+  NSString *_answersString;
 }
 
 - (NSUInteger) topicFailureErrorCode
@@ -19,19 +23,63 @@
   return _topicFailureErrorCode;
 }
 
-- (NSString *)topicSearchString
+- (NSString *) topicSearchString
 {
   return _topicSearchString;
 }
 
-- (void) searchingForQuestionsFailedWithError:(NSError *)error
+- (NSUInteger) questionBodyFailureErrorCode
 {
-  _topicFailureErrorCode = [error code];
+  return _questionBodyFailureErrorCode;
 }
 
-- (void) receivedQuestionsJSON:(NSString *)json
+- (NSString *) questionBodyString
+{
+  return _questionBodyString;
+}
+
+- (NSUInteger) answersFailureErrorCode
+{
+  return _answerFailureErrorCode;
+}
+
+- (NSString *) answersString
+{
+  return _answersString;
+}
+
+
+#pragma mark -
+#pragma mark KSStackOverflowCommunicatorDelegate
+
+- (void) searchingForQuestionsFailedWithError:(NSError *)error
+{
+  _topicFailureErrorCode = error.code;
+}
+
+- (void) receivedQuestionJSON:(NSString *)json
 {
   _topicSearchString = json;
+}
+
+- (void) fetchingQuestionBodyFailedWithError:(NSError *)error
+{
+  _questionBodyFailureErrorCode = error.code;
+}
+
+- (void) receivedQuestionBodyJSON:(NSString *)json
+{
+  _questionBodyString = json;
+}
+
+- (void) fetchingAnswersFailedWithError:(NSError *)error
+{
+  _answerFailureErrorCode = error.code;
+}
+
+- (void) receivedAnswersJSON:(NSString *)json
+{
+  _answersString = json;
 }
 
 @end

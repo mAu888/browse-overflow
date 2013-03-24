@@ -13,10 +13,12 @@
 
 @protocol KSStackOverflowCommunicatorDelegate <NSObject>
 
-@optional
-- (void) receivedQuestionsJSON:(NSString *)json;
+- (void) receivedQuestionJSON:(NSString *)json;
 - (void) searchingForQuestionsFailedWithError:(NSError *)error;
-
+- (void) fetchingQuestionBodyFailedWithError:(NSError *)error;
+- (void) receivedQuestionBodyJSON:(NSString *)json;
+- (void) fetchingAnswersFailedWithError:(NSError *)error;
+- (void) receivedAnswersJSON:(NSString *)json;
 @end
 
 
@@ -32,7 +34,6 @@
 @property (nonatomic, weak) id<KSStackOverflowCommunicatorDelegate> delegate;
 
 - (void) searchForQuestionsWithTag:(NSString *)tag;
-- (void) fetchBodyForQuestion:(KSQuestion *)question;
 
 - (void) downloadInformationForQuestionWithID:(NSUInteger)identifier;
 - (void) downloadAnswersToQuestionWithID:(NSUInteger)identifier;

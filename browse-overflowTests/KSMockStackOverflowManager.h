@@ -13,5 +13,9 @@
 
 - (NSUInteger) topicFailureErrorCode;
 - (NSString *) topicSearchString;
+- (NSUInteger) questionBodyFailureErrorCode;
+- (NSString *) questionBodyString;
+- (NSUInteger) answersFailureErrorCode;
+- (NSString *) answersString;
 
 @end

@@ -95,7 +95,7 @@
 
 - (void) testAcceptedAnswerIsFirst
 {
-  KSAnswer *answer = [_question.answers objectAtIndex:0];
+  KSAnswer *answer = (_question.answers)[0];
   STAssertTrue([answer isAccepted], @"First answer is accepted");
 }
 

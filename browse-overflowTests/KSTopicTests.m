@@ -73,8 +73,8 @@
   [_topic addQuestion:q2];
   
   NSArray *questions = [_topic recentQuestions];
-  KSQuestion *listedFirst = [questions objectAtIndex:0];
-  KSQuestion *listedSecond = [questions objectAtIndex:1];
+  KSQuestion *listedFirst = questions[0];
+  KSQuestion *listedSecond = questions[1];
   
   STAssertEquals([listedFirst.date laterDate:listedSecond.date], listedFirst.date, @"The later question should appear first");
 }

@@ -114,7 +114,7 @@
   _mgr.delegate = _delegate;
   
   [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
-    return [[arg userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
+    return [arg userInfo][NSUnderlyingErrorKey] == _underlyingError;
   }]];
   
   [_mgr searchingForQuestionsFailedWithError:_underlyingError];
@@ -138,7 +138,7 @@
   _questionBuilder.errorToSet = _underlyingError;
   
   [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id obj) {
-    return [[obj userInfo] objectForKey:NSUnderlyingErrorKey] == _underlyingError;
+    return [obj userInfo][NSUnderlyingErrorKey] == _underlyingError;
   }]];
   
   [_mgr receivedQuestionJSON:_questionJSON];
@@ -173,7 +173,7 @@
 
 - (void) testEmptyArrayIsPassedToDelegate
 {
-  _questionBuilder.arrayToReturn = [NSArray array];
+  _questionBuilder.arrayToReturn = @[];
   
   [[_delegate expect] didReceiveQuestions:[OCMArg checkWithBlock:^BOOL(id obj) {
     return [obj isKindOfClass:[NSArray class]] && [obj count] == 0;
@@ -186,9 +186,7 @@
 
 - (void) testAskingForQuestionBodyMeansRequesingData
 {
-  [[_communicator expect] fetchBodyForQuestion:[OCMArg checkWithBlock:^BOOL(id obj) {
-    return [obj isKindOfClass:[KSQuestion class]];
-  }]];
+  [[_communicator expect] downloadInformationForQuestionWithID:1234];
   [_mgr fetchBodyForQuestion:_questionToFetch];
   
   [_communicator verify];
@@ -213,7 +211,7 @@
 
 - (void) testManagerPassesQuestionItWasSentToQuestionBuilderForFillingIn
 {
-  [[_communicator expect] fetchBodyForQuestion:[OCMArg any]];
+  [[_communicator expect] downloadInformationForQuestionWithID:1234];
   
   [_mgr fetchBodyForQuestion:_questionToFetch];
   [_mgr receivedQuestionBodyJSON:@"Fake JSON"];

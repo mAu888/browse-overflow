@@ -34,10 +34,6 @@ enum {
 
 - (void) fetchQuestionsOnTopic:(KSTopic *)topic;
 - (void) fetchBodyForQuestion:(KSQuestion *)question;
-- (void) receivedQuestionBodyJSON:(NSString *)json;
-- (void) fetchingQuestionBodyFailedWithError:(NSError *)error;
-- (void) searchingForQuestionsFailedWithError:(NSError *)error;
-- (void) receivedQuestionJSON:(NSString *)objectNotation;
 
 @property (nonatomic, strong) KSStackOverflowCommunicator *communicator;
 @property (nonatomic, strong) KSQuestionBuilder *questionBuilder;

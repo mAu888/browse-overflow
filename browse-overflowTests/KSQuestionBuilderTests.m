@@ -61,7 +61,7 @@ static NSString *noQuestionsJSON = @"{ \"questions\": [] }";
 - (void) setUp
 {
   _questionBuilder = [[KSQuestionBuilder alloc] init];
-  _question = [[_questionBuilder questionsFromJSON:questionJSON error:NULL] objectAtIndex:0];
+  _question = [_questionBuilder questionsFromJSON:questionJSON error:NULL][0];
 }
 
 - (void) tearDown

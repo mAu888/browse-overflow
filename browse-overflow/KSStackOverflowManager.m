@@ -8,6 +8,7 @@
 
 #import "KSStackOverflowManager.h"
 #import "KSQuestionBuilder.h"
+#import "KSQuestion.h"
 #import "KSTopic.h"
 
 NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
@@ -45,7 +46,7 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 
 - (void) fetchBodyForQuestion:(KSQuestion *)question {
   self.questionToFill = question;
-  [self.communicator fetchBodyForQuestion:question];
+  [self.communicator downloadInformationForQuestionWithID:question.questionID];
 }
 
 - (void) searchingForQuestionsFailedWithError:(NSError *)error
