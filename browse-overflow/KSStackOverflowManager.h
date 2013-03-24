@@ -11,10 +11,13 @@
 extern NSString *KSStackOverflowManagerError;
 
 enum {
-  kKSStackOverflowManagerErrorQuestionSearchCode = 0
+  kKSStackOverflowManagerErrorQuestionSearchCode = 0,
+  kKSStackOverflowManagerErrorLoadingAnswersCode = 1,
+  kKSStackOverflowManagerErrorCreatingAnswersCode = 2
 };
 
 @class KSTopic;
+@class KSAnswerBuilder;
 @class KSQuestion;
 @class KSQuestionBuilder;
 @class KSStackOverflowCommunicator;
@@ -25,6 +28,8 @@ enum {
 - (void) didReceiveQuestions:(NSArray *)questions;
 - (void) fetchingQuestionsFailedWithError:(NSError *)error;
 
+- (void) fetchingAnswersFailedWithError:(NSError *)error;
+
 @property (strong) NSError *fetchError;
 
 @end
@@ -34,8 +39,10 @@ enum {
 
 - (void) fetchQuestionsOnTopic:(KSTopic *)topic;
 - (void) fetchBodyForQuestion:(KSQuestion *)question;
+- (void) fetchAnswersForQuestion:(KSQuestion *)question;
 
 @property (nonatomic, strong) KSStackOverflowCommunicator *communicator;
+@property (nonatomic, strong) KSAnswerBuilder *answerBuilder;
 @property (nonatomic, strong) KSQuestionBuilder *questionBuilder;
 @property (nonatomic, strong) KSQuestion *questionToFill;
 @property (nonatomic, weak) id<KSStackOverflowManagerDelegate> delegate;

@@ -40,7 +40,7 @@
 - (void) setUp
 {
   _mgr = [[KSStackOverflowManager alloc] init];
-  _delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
+  _delegate = [OCMockObject niceMockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
   _underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
   _questionJSON = @"{ \"fake\": \"json\" }";
   
@@ -101,7 +101,7 @@
 - (void) testErrorReturnedToDelegateIsNotErrorNotifiedByCommunicator
 {
   [[_delegate expect] fetchingQuestionsFailedWithError:[OCMArg checkWithBlock:^BOOL(id arg) {
-    return [arg isKindOfClass:[NSError class]] && [[(NSError *)arg domain] isEqualToString:KSStackOverflowManagerError];
+    return [arg isKindOfClass:[NSError class]] && [[arg domain] isEqualToString:KSStackOverflowManagerError];
   }]];
   
   [_mgr searchingForQuestionsFailedWithError:_underlyingError];
@@ -124,10 +124,7 @@
 
 - (void) testQuestionJSONIsPassedToQuestionBuilder
 {
-  [[_delegate stub] fetchingQuestionsFailedWithError:[OCMArg any]];
-  
   [_mgr receivedQuestionJSON:_questionJSON];
-  
   _mgr.questionBuilder = nil;
   
   STAssertEqualObjects(_questionBuilder.JSON, _questionJSON, @"Builder is called by manager");

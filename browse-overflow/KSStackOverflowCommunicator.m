@@ -87,11 +87,14 @@ static NSString *KSStackOverflowCommunicatorErrorDomain = @"KSStackOverflowError
   {
     NSError *error = [NSError errorWithDomain:KSStackOverflowCommunicatorErrorDomain code:httpResponse.statusCode userInfo:nil];
     errorHandler(error);
+    [self cancelAndDiscardURLConnection];
   }
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+  _fetchingConnection = nil;
+  _receivedData = nil;
   errorHandler(error);
 }
 

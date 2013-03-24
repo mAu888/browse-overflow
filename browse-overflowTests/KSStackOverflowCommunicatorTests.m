@@ -104,6 +104,22 @@
   [_communicator cancelAndDiscardURLConnection];
 }
 
+- (void) testReceivingResponseWith404DiscardsURLConnection
+{
+  [_communicator searchForQuestionsWithTag:@"ios"];
+  [_communicator connection:nil didReceiveResponse:(NSURLResponse *)_fourOhFourResponse];
+  
+  STAssertNil([_communicator currentURLConnection], @"Current URL connetion should have been discarded after 404");
+}
+
+- (void) testConnectionShouldBeNilledWhenFailed
+{
+  [_communicator searchForQuestionsWithTag:@"ios"];
+  [_communicator connection:nil didFailWithError:nil];
+  
+  STAssertNil([_communicator currentURLConnection], @"Current URL connetion should have been discarded after error");
+}
+
 - (void) testReceivingResponseDiscardsExistingData
 {
   _nnCommunicator.receivedData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding];
@@ -111,6 +127,15 @@
   [_nnCommunicator connection:nil didReceiveResponse:nil];
   
   STAssertEquals(_nnCommunicator.receivedData.length, (NSUInteger)0, @"Existing data should have been discarded");
+}
+
+- (void) testReceivingErrorDiscardsExisingData
+{
+  _nnCommunicator.receivedData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding];
+  [_nnCommunicator searchForQuestionsWithTag:@"ios"];
+  [_nnCommunicator connection:nil didFailWithError:nil];
+  
+  STAssertNil(_nnCommunicator.receivedData, @"Received data should have been resetted when connection fails");
 }
 
 - (void) testReceivingResponseWith404StatusPassesErrorToDelegate

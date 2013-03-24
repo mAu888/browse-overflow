@@ -35,6 +35,8 @@
 		5C0163C21645508200CD5C40 /* KSAnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C11645508200CD5C40 /* KSAnswerTests.m */; };
 		5C0163C5164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
 		5C0163C6164552F000CD5C40 /* KSAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0163C4164552F000CD5C40 /* KSAnswer.m */; };
+		5C13A00216FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C13A00116FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.m */; };
+		5C13A00516FF6FD900D8BE99 /* KSAnswerBuilderMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C13A00416FF6FD900D8BE99 /* KSAnswerBuilderMock.m */; };
 		5C1504B7164F130D00B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
 		5C1504B8164F134300B36F49 /* KSQuestionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */; };
 		5C1504BC164FDD6400B36F49 /* KSQuestionBuilderMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */; };
@@ -105,6 +107,10 @@
 		5C0163C11645508200CD5C40 /* KSAnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswerTests.m; sourceTree = "<group>"; };
 		5C0163C3164552F000CD5C40 /* KSAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswer.h; sourceTree = "<group>"; };
 		5C0163C4164552F000CD5C40 /* KSAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswer.m; sourceTree = "<group>"; };
+		5C13A00016FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswerCreationWorkflowTests.h; sourceTree = "<group>"; };
+		5C13A00116FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswerCreationWorkflowTests.m; sourceTree = "<group>"; };
+		5C13A00316FF6FD900D8BE99 /* KSAnswerBuilderMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAnswerBuilderMock.h; sourceTree = "<group>"; };
+		5C13A00416FF6FD900D8BE99 /* KSAnswerBuilderMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAnswerBuilderMock.m; sourceTree = "<group>"; };
 		5C1504B5164F130D00B36F49 /* KSQuestionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionBuilder.h; sourceTree = "<group>"; };
 		5C1504B6164F130D00B36F49 /* KSQuestionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQuestionBuilder.m; sourceTree = "<group>"; };
 		5C1504BA164FDD6400B36F49 /* KSQuestionBuilderMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQuestionBuilderMock.h; sourceTree = "<group>"; };
@@ -232,6 +238,8 @@
 				5C0163C11645508200CD5C40 /* KSAnswerTests.m */,
 				5C1EE2AE16E20F0B00F0AB67 /* KSAnswerBuilderTests.h */,
 				5C1EE2AF16E20F0B00F0AB67 /* KSAnswerBuilderTests.m */,
+				5C13A00016FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.h */,
+				5C13A00116FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.m */,
 				5C0163B91645447100CD5C40 /* KSPersonTests.h */,
 				5C0163BA1645447100CD5C40 /* KSPersonTests.m */,
 				5C1504BD164FEB2200B36F49 /* KSQuestionBuilderTests.h */,
@@ -316,6 +324,8 @@
 		5C1504B9164FDD4C00B36F49 /* Complex Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				5C13A00316FF6FD900D8BE99 /* KSAnswerBuilderMock.h */,
+				5C13A00416FF6FD900D8BE99 /* KSAnswerBuilderMock.m */,
 				5C1504BA164FDD6400B36F49 /* KSQuestionBuilderMock.h */,
 				5C1504BB164FDD6400B36F49 /* KSQuestionBuilderMock.m */,
 				5C8387ED16FBA67500CE31C9 /* KSMockStackOverflowManager.h */,
@@ -510,6 +520,8 @@
 				5C8387EF16FBA67500CE31C9 /* KSMockStackOverflowManager.m in Sources */,
 				5C8387F316FBA6CF00CE31C9 /* KSNonNetworkedStackOverflowCommunicator.m in Sources */,
 				5C8387F616FBA70F00CE31C9 /* KSFakeURLResponse.m in Sources */,
+				5C13A00216FF2CF700D8BE99 /* KSAnswerCreationWorkflowTests.m in Sources */,
+				5C13A00516FF6FD900D8BE99 /* KSAnswerBuilderMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

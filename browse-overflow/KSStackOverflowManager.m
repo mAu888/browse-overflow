@@ -7,6 +7,7 @@
 //
 
 #import "KSStackOverflowManager.h"
+#import "KSAnswerBuilder.h"
 #import "KSQuestionBuilder.h"
 #import "KSQuestion.h"
 #import "KSTopic.h"
@@ -25,10 +26,6 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 
 @implementation KSStackOverflowManager
 
-@synthesize communicator = _communicator;
-@synthesize questionBuilder = _questionBuilder;
-@synthesize delegate = _delegate;
-
 - (void) setDelegate:(id<KSStackOverflowManagerDelegate>)delegate
 {
   if (delegate != nil && ! [delegate conformsToProtocol:@protocol(KSStackOverflowManagerDelegate)])
@@ -44,14 +41,34 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   [self.communicator searchForQuestionsWithTag:[topic tag]];
 }
 
-- (void) fetchBodyForQuestion:(KSQuestion *)question {
+- (void) fetchBodyForQuestion:(KSQuestion *)question
+{
   self.questionToFill = question;
   [self.communicator downloadInformationForQuestionWithID:question.questionID];
+}
+
+- (void) fetchAnswersForQuestion:(KSQuestion *)question
+{
+  NSAssert(question != nil, @"Can not fetch answers to no question");
+  
+  self.questionToFill = question;
+  [self.communicator downloadAnswersToQuestionWithID:question.questionID];
 }
 
 - (void) searchingForQuestionsFailedWithError:(NSError *)error
 {
   [self notifyDelegateAboutQuestionSearchError:error];
+}
+
+- (void) fetchingAnswersFailedWithError:(NSError *)underlyingError
+{
+  NSDictionary *userInfo = nil;
+  if (underlyingError != nil) {
+    userInfo = @{ NSUnderlyingErrorKey: underlyingError };
+  }
+  
+  NSError *error = [NSError errorWithDomain:KSStackOverflowManagerError code:kKSStackOverflowManagerErrorLoadingAnswersCode userInfo:userInfo];
+  [_delegate fetchingAnswersFailedWithError:error];
 }
 
 - (void) receivedQuestionJSON:(NSString *)objectNotation
@@ -72,6 +89,22 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
 - (void) receivedQuestionBodyJSON:(NSString *)json
 {
   [_questionBuilder fillInDetailsForQuestion:self.questionToFill json:json];
+}
+
+- (void) receivedAnswersJSON:(NSString *)json
+{
+  NSError *underlyingError = nil;
+  if ([_answerBuilder addAnswersToQuestion:self.questionToFill fromJSON:json error:&underlyingError])
+  {
+    
+  }
+  else
+  {
+    NSError *error = [NSError errorWithDomain:KSStackOverflowManagerError
+                                         code:kKSStackOverflowManagerErrorCreatingAnswersCode
+                                     userInfo:@{ NSUnderlyingErrorKey: underlyingError }];
+    [_delegate fetchingAnswersFailedWithError:error];
+  }
 }
 
 - (void) fetchingQuestionBodyFailedWithError:(NSError *)error
