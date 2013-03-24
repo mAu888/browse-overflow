@@ -7,12 +7,19 @@
 //
 
 #import "KSAnswerBuilderMock.h"
+#import "KSAnswer.h"
+#import "KSQuestion.h"
 
 @implementation KSAnswerBuilderMock
 
 - (BOOL) addAnswersToQuestion:(KSQuestion *)question fromJSON:(NSString *)json error:(NSError *__autoreleasing *)error
 {
   self.questionToFillAnswersFor = question;
+  for (KSAnswer *answer in self.answersToSet)
+  {
+    [question addAnswer:answer];
+  }
+  
   self.JSON = json;
   *error = self.errorToSet;
   

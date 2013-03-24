@@ -96,7 +96,8 @@ NSString *KSStackOverflowManagerError = @"KSStackOverflowManagerError";
   NSError *underlyingError = nil;
   if ([_answerBuilder addAnswersToQuestion:self.questionToFill fromJSON:json error:&underlyingError])
   {
-    
+    [_delegate didReceiveAnswersForQuestion:self.questionToFill];
+    self.questionToFill = nil;
   }
   else
   {

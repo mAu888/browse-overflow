@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *JSON;
 @property (nonatomic, strong) KSQuestion *questionToFillAnswersFor;
 @property (nonatomic, strong) NSError *errorToSet;
+@property (nonatomic, strong) NSArray *answersToSet;
 
 @end

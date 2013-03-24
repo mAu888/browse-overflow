@@ -11,6 +11,7 @@
 #import "KSStackOverflowCommunicator.h"
 
 #import "KSAnswerBuilderMock.h"
+#import "KSAnswer.h"
 #import "KSQuestion.h"
 
 #import "OCMock.h"
@@ -23,6 +24,7 @@
   KSStackOverflowManager *_mgr;
   KSQuestion *_question;
   NSString *_answersJSON;
+  NSArray *_answersArray;
   KSAnswerBuilderMock *_answerBuilder;
   
   NSError *_underlyingError;
@@ -33,8 +35,9 @@
 - (void) setUp
 {
   _mgr = [[KSStackOverflowManager alloc] init];
-  _delegate = [OCMockObject mockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
+  _delegate = [OCMockObject niceMockForProtocol:@protocol(KSStackOverflowManagerDelegate)];
   _answersJSON = @"{ \"fake\": \"json\" }";
+  _answersArray = @[[[KSAnswer alloc] init]];
   _answerBuilder = [[KSAnswerBuilderMock alloc] init];
   
   _mgr.answerBuilder = _answerBuilder;
@@ -51,6 +54,7 @@
   _mgr = nil;
   _delegate = nil;
   _answersJSON = nil;
+  _answersArray = nil;
   _answerBuilder = nil;
   
   _question = nil;
@@ -128,6 +132,30 @@
   [_mgr receivedAnswersJSON:nil];
   
   [_delegate verify];
+}
+
+- (void) testManagerNotifiesDelegateAboutSuccessfulFetchingAnswers
+{
+  _answerBuilder.answersToSet = _answersArray;
+  
+  [[_delegate expect] didReceiveAnswersForQuestion:[OCMArg checkWithBlock:^BOOL(id obj) {
+    return obj == _question && _question.answers.count == _answersArray.count;
+  }]];
+  
+  [_mgr fetchAnswersForQuestion:_question];
+  [_mgr receivedAnswersJSON:nil];
+  
+  [_delegate verify];
+}
+
+- (void) testManagerResetsQuestionToFillAfterAnswersHaveBeenSet
+{
+  _answerBuilder.answersToSet = _answersArray;
+  
+  [_mgr fetchAnswersForQuestion:_question];
+  [_mgr receivedAnswersJSON:nil];
+  
+  STAssertNil(_mgr.questionToFill, @"The question to fill should have been resetted");
 }
 
 @end

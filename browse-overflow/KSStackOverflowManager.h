@@ -28,6 +28,7 @@ enum {
 - (void) didReceiveQuestions:(NSArray *)questions;
 - (void) fetchingQuestionsFailedWithError:(NSError *)error;
 
+- (void) didReceiveAnswersForQuestion:(KSQuestion *)question;
 - (void) fetchingAnswersFailedWithError:(NSError *)error;
 
 @property (strong) NSError *fetchError;
